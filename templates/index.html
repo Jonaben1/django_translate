@@ -1,0 +1,40 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Django Translate</title>
+  </head>
+  <body>
+    <h1>Django Translate App</h1>
+    <form method="post">
+      {% csrf_token %}
+      
+  <label for="django">Enter Text:</label>
+  <br/>  
+  <textarea onChange="" id="translate" name="translate" placeholder="Enter your text here" rows="10" cols="70"></textarea>
+  <p id="countText">Total words: 0</p>
+
+  <!--<input id="translate" type="text" name="translate" placeholder="Enter your text here" required>-->
+      <br>
+      <select required name="language">
+        <option value="French">French</option>
+        <option value="Spanish">Spanish</option>
+        <option value="German">German</option>
+        <option value="Italian">Italian</option>
+
+      </select>
+      <br>
+      <br>
+      <button id="btn" type="submit">Translate</button>
+    </form>
+  
+  <br>
+  
+    <textarea id="text" placeholder="Your text will appear here" rows='10' cols='70'>{{ translation }}</textarea>
+    <p id="wordCount">Total words: 0</p>
+    <p>Number of original text: {{ word1 }}</p>
+    <p>Number of translated text: {{ word2 }}</p>
+  </body>
+    <script src="{% static 'js/script.js' %}"></script>
+</html>
